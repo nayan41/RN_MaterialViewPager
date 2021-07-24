@@ -4,42 +4,42 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BottomTabComponent from '../component/BottomTabComponent';
 import {
-  FavouriteScreen,
-  HomeScreen,
-  ProfileScreen,
-  SurveyScreen,
+  ThirdBottomScreen,
+  FirstBottomScreen,
+  FourthBottomScreen,
+  SecondBottomScreen,
 } from '../screens/dashboardmodule';
 
 //For Bottom Tab Navigation
 const AppBottomTabNavigation = createBottomTabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    FirstBottomScreen: {
+      screen: FirstBottomScreen,
       navigationOptions: {
         headerShown: false,
       },
     },
-    Survey: {
-      screen: SurveyScreen,
+    SecondBottomScreen: {
+      screen: SecondBottomScreen,
       navigationOptions: {
         headerShown: false,
       },
     },
-    Favourite: {
-      screen: FavouriteScreen,
+    ThirdBottomScreen: {
+      screen: ThirdBottomScreen,
       navigationOptions: {
         headerShown: false,
       },
     },
-    Profile: {
-      screen: ProfileScreen,
+    FourthBottomScreen: {
+      screen: FourthBottomScreen,
       navigationOptions: {
         headerShown: false,
       },
     },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'FirstBottomScreen',
     tabBarComponent: props => <BottomTabComponent {...props} />,
     tabBarPosition: 'bottom',
     headerMode: 'none',

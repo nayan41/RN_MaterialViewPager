@@ -1,10 +1,10 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
+import {StyleSheet, Platform, Dimensions} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Colors from '../../constants/Colors';
-import { normalize } from '../StyleFont';
+import {normalize} from '../StyleFont';
 
 const StyleToolbar = StyleSheet.create({
   containerView: {
@@ -32,6 +32,7 @@ const StyleToolbar = StyleSheet.create({
   },
   titleViewStyle: {
     flex: 1,
+    marginLeft: wp('3%'),
   },
   titleTextStyle: {
     color: Colors.colorSecondary,
@@ -49,4 +50,4 @@ const StyleToolbar = StyleSheet.create({
   },
 });
 
-export { StyleToolbar };
+export {StyleToolbar};

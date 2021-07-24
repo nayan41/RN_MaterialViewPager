@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Colors from '../../constants/Colors';
-import { normalize } from '../StyleFont';
+import {normalize} from '../StyleFont';
 
 const StylesBottomTabComponent = StyleSheet.create({
   container: {
@@ -18,9 +18,6 @@ const StylesBottomTabComponent = StyleSheet.create({
     shadowColor: Colors.colorPrimaryLight,
   },
   keyboardContainer: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -76,4 +73,4 @@ const StylesBottomTabComponent = StyleSheet.create({
   },
 });
 
-export { StylesBottomTabComponent };
+export {StylesBottomTabComponent};

@@ -13,22 +13,9 @@ import {
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {MyToolbar} from '../../../component';
 import Colors from '../../../constants/Colors';
-import {goToViewFilledSurveyScreen} from '../../../navigation/NavActions';
-import {normalize, StyleFavorate} from '../../../stylesheets';
+import {normalize, StyleThird} from '../../../stylesheets';
 
-export function redirectToViewFillSurveyScreen(props, itemID) {
-  goToViewFilledSurveyScreen(props.navigation, itemID);
-}
-
-const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
-  const paddingToBottom = 30;
-  return (
-    layoutMeasurement.height + contentOffset.y >=
-    contentSize.height - paddingToBottom
-  );
-};
-
-class SurveyScreen extends React.Component {
+class FirstScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,18 +29,22 @@ class SurveyScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={StyleFavorate.container}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
-        <View style={StyleFavorate.container}>
-          <Text>Favourite Survey</Text>
-        </View>
+        <Text>FirstScreen</Text>
       </SafeAreaView>
     );
   }
 }
 
-class ContestScreen extends React.Component {
+class SecondScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -67,12 +58,16 @@ class ContestScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={StyleFavorate.container}>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
-        <View style={StyleFavorate.container}>
-          <Text>Favourite Contest</Text>
-        </View>
+        <Text>SecondScreen</Text>
       </SafeAreaView>
     );
   }
@@ -83,7 +78,7 @@ const Tab = createMaterialTopTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Survey"
+      initialRouteName="First"
       allowFontScaling={false}
       tabBarOptions={{
         upperCaseLabel: false,
@@ -113,22 +108,22 @@ function MyTabs() {
         },
       }}>
       <Tab.Screen
-        name={'Survey'}
-        component={SurveyScreen}
-        options={{title: 'Survey'}}
+        name={'First'}
+        component={FirstScreen}
+        options={{title: 'First'}}
       />
 
       <Tab.Screen
-        name={'Contest'}
-        component={ContestScreen}
-        options={{title: 'Contest'}}
+        name={'Second'}
+        component={SecondScreen}
+        options={{title: 'Second'}}
       />
     </Tab.Navigator>
   );
 }
 
 var prp;
-class FavouriteScreen extends Component {
+class ThirdBottomScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -147,7 +142,7 @@ class FavouriteScreen extends Component {
     const {navigation} = this.props;
     this.focusListener = navigation.addListener('didFocus', () => {
       DeviceEventEmitter.emit('TabChange', {
-        screen: 'Favourite',
+        screen: 'ThirdBottomScreen',
       });
       DeviceEventEmitter.emit('reload', {val: 'Yes'});
     });
@@ -173,7 +168,7 @@ class FavouriteScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={StyleFavorate.safeViewContainer}>
+      <SafeAreaView style={StyleThird.safeViewContainer}>
         <View
           style={{
             flex: 1,
@@ -188,10 +183,7 @@ class FavouriteScreen extends Component {
             }}>
             <StatusBar barStyle="dark-content" backgroundColor={Colors.black} />
 
-            <MyToolbar
-              titleName={'Favourite'}
-              leftImage={require('../../../assets/icons/ic_cp_logo.png')}
-            />
+            <MyToolbar titleName={'Third Screen'} />
           </View>
 
           <View style={{flex: 1, backgroundColor: Colors.colorWhiteBG}}>
@@ -204,12 +196,4 @@ class FavouriteScreen extends Component {
     );
   }
 }
-export {FavouriteScreen};
-
-const styles = StyleSheet.create({
-  progressBar: {
-    flexDirection: 'row',
-    width: '100%',
-    backgroundColor: Colors.progressBar,
-  },
-});
+export {ThirdBottomScreen};

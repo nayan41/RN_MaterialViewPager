@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Image,
@@ -11,7 +11,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { normalize, StyleToolbar } from '../stylesheets';
+import {normalize, StyleToolbar} from '../stylesheets';
 import Colors from '../constants/Colors';
 
 import PropTypes from 'prop-types';
@@ -32,17 +32,17 @@ class MyToolbar extends Component {
   componentDidMount() {
     this.eventListener = DeviceEventEmitter.addListener(
       'NotificationCount',
-      this.handleNotificationCountEvent
+      this.handleNotificationCountEvent,
     );
   }
 
-  handleNotificationCountEvent = (event) => {
-    this.setState({ notifcationCount: event.count });
+  handleNotificationCountEvent = event => {
+    this.setState({notifcationCount: event.count});
   };
 
   componentWillUnmount() {
     this._animatedIsFocused = new Animated.Value(
-      this.props.value === '' ? 0 : 1
+      this.props.value === '' ? 0 : 1,
     );
     this.eventListener.remove();
   }
@@ -64,17 +64,16 @@ class MyToolbar extends Component {
     return (
       <View style={StyleToolbar.containerView}>
         <View style={[StyleToolbar.innerContainerStyle, containerStyle]}>
-          <View style={StyleToolbar.drawerIconViewStyle}>
+          {/* <View style={StyleToolbar.drawerIconViewStyle}>
             <TouchableOpacity onPress={onLeftImagePress}>
               <Image style={StyleToolbar.imageLeftStyle} source={leftImage} />
             </TouchableOpacity>
-          </View>
+          </View> */}
           <View style={StyleToolbar.titleViewStyle}>
             <Text
               style={StyleToolbar.titleTextStyle}
               allowFontScaling={false}
-              numberOfLines={1}
-            >
+              numberOfLines={1}>
               {titleName}
             </Text>
           </View>
@@ -82,8 +81,7 @@ class MyToolbar extends Component {
           <View style={StyleToolbar.rightContainer}>
             <TouchableOpacity
               onPress={onRightFirstImagePress}
-              activeOpacity={0.5}
-            >
+              activeOpacity={0.5}>
               <Image
                 style={StyleToolbar.imageStyleRightSub}
                 source={rightFirstImage}
@@ -92,8 +90,7 @@ class MyToolbar extends Component {
             {rightSecondImage != null && (
               <TouchableOpacity
                 onPress={onRightSecondImagePress}
-                activeOpacity={0.5}
-              >
+                activeOpacity={0.5}>
                 <Image
                   style={StyleToolbar.imageStyleRightSub}
                   source={rightSecondImage}
@@ -106,7 +103,7 @@ class MyToolbar extends Component {
     );
   }
 }
-export { MyToolbar };
+export {MyToolbar};
 
 MyToolbar.defaultProps = {
   containerStyle: {},

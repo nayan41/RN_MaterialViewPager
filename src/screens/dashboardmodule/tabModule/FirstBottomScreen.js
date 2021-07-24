@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import {MyToolbar} from '../../../component';
 import Colors from '../../../constants/Colors';
-import {StyleHome} from '../../../stylesheets';
+import {StyleFirst} from '../../../stylesheets';
 
-class HomeScreen extends Component {
+class FirstBottomScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     this.focusListener = this.props.navigation.addListener('didFocus', () => {
-      DeviceEventEmitter.emit('TabChange', {screen: 'Home'});
+      DeviceEventEmitter.emit('TabChange', {screen: 'FirstBottomScreen'});
     });
   }
 
@@ -31,19 +31,16 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={StyleHome.container}>
+      <SafeAreaView style={StyleFirst.container}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
-        <MyToolbar
-          titleName={'HomeScreen'}
-          leftImage={require('../../../assets/icons/ic_cp_logo.png')}
-        />
+        <MyToolbar titleName={'First Screen'} />
 
-        <View style={StyleHome.container}>
-          <Text>HomeScreen</Text>
+        <View style={StyleFirst.container}>
+          <Text>First Screen</Text>
         </View>
       </SafeAreaView>
     );
   }
 }
-export {HomeScreen};
+export {FirstBottomScreen};

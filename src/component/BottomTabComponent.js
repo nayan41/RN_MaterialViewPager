@@ -17,7 +17,7 @@ class BottomTabComponent extends Component {
     Text.defaultProps.allowFontScaling = false;
 
     this.state = {
-      selectedTab: 'Home',
+      selectedTab: 'FirstBottomScreen',
     };
   }
 
@@ -49,24 +49,24 @@ class BottomTabComponent extends Component {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}>
         <View style={StylesBottomTabComponent.container}>
           <TouchableOpacity
-            onPress={() => this.redirectToTab('Home')}
+            onPress={() => this.redirectToTab('FirstBottomScreen')}
             style={StylesBottomTabComponent.subContainerStyle}>
             <Image
               style={StylesBottomTabComponent.iconStyle}
               source={
-                selectedTab === 'Home'
+                selectedTab === 'FirstBottomScreen'
                   ? require('../assets/icons/ic_home_active.png')
                   : require('../assets/icons/ic_home_inactive.png')
               }
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.redirectToTab('Survey')}
+            onPress={() => this.redirectToTab('SecondBottomScreen')}
             style={StylesBottomTabComponent.subContainerStyle}>
             <Image
               style={StylesBottomTabComponent.iconStyle}
               source={
-                selectedTab === 'Survey'
+                selectedTab === 'SecondBottomScreen'
                   ? require('../assets/icons/ic_survey_active.png')
                   : require('../assets/icons/ic_survey_inactive.png')
               }
@@ -74,24 +74,24 @@ class BottomTabComponent extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => this.redirectToTab('Favourite')}
+            onPress={() => this.redirectToTab('ThirdBottomScreen')}
             style={StylesBottomTabComponent.subContainerStyle}>
             <Image
               style={StylesBottomTabComponent.iconStyle}
               source={
-                selectedTab === 'Favourite'
+                selectedTab === 'ThirdBottomScreen'
                   ? require('../assets/icons/ic_favorite_active.png')
                   : require('../assets/icons/ic_favorite_inactive.png')
               }
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.redirectToTab('Profile')}
+            onPress={() => this.redirectToTab('FourthBottomScreen')}
             style={StylesBottomTabComponent.subContainerStyle}>
             <Image
               style={StylesBottomTabComponent.iconStyle}
               source={
-                selectedTab === 'Profile'
+                selectedTab === 'FourthBottomScreen'
                   ? require('../assets/icons/ic_profile_active.png')
                   : require('../assets/icons/ic_profile_Inactive.png.png')
               }

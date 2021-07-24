@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import {MyToolbar} from '../../../component';
 import Colors from '../../../constants/Colors';
-import {StyleSurvey} from '../../../stylesheets';
+import {StyleSecond} from '../../../stylesheets';
 
-class SurveyScreen extends Component {
+class SecondBottomScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -21,26 +21,23 @@ class SurveyScreen extends Component {
   componentDidMount() {
     this.focusListener = this.props.navigation.addListener('didFocus', () => {
       DeviceEventEmitter.emit('TabChange', {
-        screen: 'Survey',
+        screen: 'SecondBottomScreen',
       });
     });
   }
 
   render() {
     return (
-      <SafeAreaView style={StyleSurvey.container}>
+      <SafeAreaView style={StyleSecond.container}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
-        <MyToolbar
-          titleName={'Filled Survey'}
-          leftImage={require('../../../assets/icons/ic_cp_logo.png')}
-        />
+        <MyToolbar titleName={'Second Screen'} />
 
-        <View style={StyleSurvey.container}>
-          <Text>Filled Survey</Text>
+        <View style={StyleSecond.container}>
+          <Text>Second Screen</Text>
         </View>
       </SafeAreaView>
     );
   }
 }
-export {SurveyScreen};
+export {SecondBottomScreen};

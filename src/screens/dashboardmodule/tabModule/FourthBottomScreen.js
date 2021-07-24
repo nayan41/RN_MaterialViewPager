@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import {MyToolbar} from '../../../component';
 import Colors from '../../../constants/Colors';
-import {StyleProfile} from '../../../stylesheets';
+import {StyleFourth} from '../../../stylesheets';
 
-class ProfileScreen extends Component {
+class FourthBottomScreen extends Component {
   constructor(props) {
     super(props);
     if (TextInput.defaultProps == null) TextInput.defaultProps = {};
@@ -21,27 +21,27 @@ class ProfileScreen extends Component {
   componentDidMount() {
     this.focusListener = this.props.navigation.addListener('didFocus', () => {
       DeviceEventEmitter.emit('TabChange', {
-        screen: 'Profile',
+        screen: 'FourthBottomScreen',
       });
     });
   }
 
   render() {
     return (
-      <SafeAreaView style={StyleProfile.container}>
+      <SafeAreaView style={StyleFourth.container}>
         <StatusBar
           barStyle="dark-content"
           backgroundColor={Colors.colorPrimary}
         />
         <MyToolbar
-          titleName={'ProfileScreen'}
+          titleName={'Fourth Screen'}
           leftImage={require('../../../assets/icons/ic_back.png')}
         />
-        <View style={StyleProfile.container}>
-          <Text>ProfileScreen</Text>
+        <View style={StyleFourth.container}>
+          <Text>Fourth Screens</Text>
         </View>
       </SafeAreaView>
     );
   }
 }
-export {ProfileScreen};
+export {FourthBottomScreen};

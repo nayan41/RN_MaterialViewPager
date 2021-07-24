@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import {goToHomeScreen} from '../navigation/NavActions';
+import {goToFirstBottomScreen} from '../navigation/NavActions';
 import {StylesSplash} from '../stylesheets';
 
 class SplashScreen extends Component {
@@ -21,7 +21,7 @@ class SplashScreen extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      goToHomeScreen(this.props.navigation);
+      goToFirstBottomScreen(this.props.navigation);
     }, 1500);
   }
 
@@ -34,13 +34,7 @@ class SplashScreen extends Component {
             style={StylesSplash.bgContainer}
             source={require('../assets/background/ic_splash_icon_1.png')}
             // resizeMode='cover'
-            resizeMode="cover">
-            <Image
-              style={StylesSplash.logoStyle}
-              source={require('../assets/icons/ic_cp_logo.png')}
-              resizeMode="contain"
-            />
-          </ImageBackground>
+            resizeMode="cover"></ImageBackground>
         </View>
       </SafeAreaView>
     );
